@@ -48,12 +48,12 @@ def lagrange_polynomial(abscissas, sort="G"):
     if det == 0:
         raise numpy.linalg.LinAlgError("invertible matrix required")
 
-    vec = chaospy.poly.basis(0, order-1, dim, sort)[:size]
+    vec = numpoly.basis(0, order-1, dim, sort)[:size]
 
     coeffs = numpy.zeros((size, size))
 
     if size == 1:
-        out = chaospy.poly.basis(0, 0, dim, sort)*abscissas.item()
+        out = numpoly.basis(0, 0, dim, sort)*abscissas.item()
 
     elif size == 2:
         coeffs = numpy.linalg.inv(matrix)
